@@ -1,16 +1,238 @@
-# React + Vite
+# Agency Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive agency website built with **React**, **Vite**, and **Tailwind CSS**. This project showcases a clean user interface, smooth animations, reusable components, and modern frontend development practices.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Overview
 
-## React Compiler
+This project is a frontend-only marketing agency website designed to demonstrate responsive web design, component-based architecture, accessibility, and performance optimization.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The website includes multiple pages such as Home, About, Services, Portfolio, Blog, and Contact.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Features
+
+* Responsive design
+* Modern UI/UX
+* Mobile navigation
+* Dark mode
+* Smooth scrolling
+* Scroll animations
+* Portfolio showcase
+* Blog page
+* Contact form with validation
+* SEO-friendly structure
+* Open Graph support
+* Accessible components
+* Reusable UI components
+
+---
+
+## Tech Stack
+
+### Frontend
+
+* React 19
+* Vite
+* Tailwind CSS
+* React Router
+* React Hook Form
+* Framer Motion
+* React Icons
+
+---
+
+## 📁 Folder Structure
+
+```text
+src/
+├── assets/
+├── components/
+│   ├── common/
+│   ├── layout/
+│   └── ui/
+├── pages/
+├── sections/
+├── data/
+├── hooks/
+├── layouts/
+├── routes/
+├── styles/
+├── utils/
+├── App.jsx
+└── main.jsx
+```
+
+---
+
+## Pages
+
+* Home
+* About
+* Services
+* Portfolio
+* Blog
+* Contact
+* 404 Not Found
+
+---
+
+##  UI Components
+
+* Navbar
+* Footer
+* Hero Section
+* Service Cards
+* Project Cards
+* Testimonial Cards
+* Team Cards
+* FAQ Accordion
+* Buttons
+* Cards
+* Section Titles
+* Loader
+* Back to Top Button
+
+---
+
+## Responsive Design
+
+Optimized for:
+
+* Mobile
+* Tablet
+* Laptop
+* Desktop
+
+---
+
+## Accessibility
+
+* Semantic HTML
+* Keyboard navigation
+* Focus states
+* ARIA labels
+* Proper heading hierarchy
+* Sufficient color contrast
+
+---
+
+## Performance
+
+* Lazy loading
+* Optimized images
+* Code splitting
+* Responsive assets
+* Lighthouse optimization
+
+---
+
+## SEO
+
+* Dynamic page titles
+* Meta description
+* Open Graph tags
+* Twitter Cards
+* Favicon
+* robots.txt
+* sitemap.xml
+
+---
+
+## Getting Started
+
+### Navigate into the project
+
+```bash
+cd agency-website
+```
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Start the development server
+
+```bash
+npm run dev
+```
+
+### Build for production
+
+```bash
+npm run build
+```
+
+### Preview production build
+
+```bash
+npm run preview
+```
+
+---
+
+## Scripts
+
+```bash
+npm run dev
+```
+
+Starts the development server.
+
+```bash
+npm run build
+```
+
+Builds the project for production.
+
+```bash
+npm run preview
+```
+
+Previews the production build locally.
+
+```bash
+npm run lint
+```
+
+Runs ESLint.
+
+---
+
+##  Project Goals
+
+* Practice React fundamentals
+* Learn component-based architecture
+* Build reusable UI components
+* Improve responsive design skills
+* Implement modern frontend best practices
+* Create a portfolio-ready project
+
+---
+
+##  Future Improvements
+
+* Backend integration
+* CMS support
+* Authentication
+* Portfolio filtering with API
+* Blog management
+* Contact email service
+* Multi-language support
+* Theme customization
+
+---
+
+## Author
+
+**Linda**
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
