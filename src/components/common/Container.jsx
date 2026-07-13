@@ -1,9 +1,7 @@
-function Container({ children, style = {}, ...props }) {
+export default function Container({ children, className = "" }) {
   return (
-    <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', ...style }} {...props}>
+    <div className={`max-w-6xl mx-auto ${className}`}>
       {children}
     </div>
-  )
+  );
 }
-
-export default Container

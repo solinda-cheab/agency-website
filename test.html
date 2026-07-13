@@ -1,0 +1,533 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>R. Alvarez - Multi-Platform Advertising Experts</title>
+    <!-- Tailwind CSS v3 CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style data-purpose="custom-background">
+      /* Grid Background Implementation */
+      .grid-bg {
+        background-color: #ffffff;
+        background-image:
+          linear-gradient(#e5e7eb 1px, transparent 1px),
+          linear-gradient(90deg, #e5e7eb 1px, transparent 1px);
+        background-size: 80px 80px;
+      }
+
+      /* Pixel Art Decoration (Abstracted) */
+      .pixel-pattern {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 40%;
+        pointer-events: none;
+        z-index: 1;
+        overflow: hidden;
+      }
+
+      /* Subtle Pixelated Grid for Our Work Section */
+      .work-grid-bg {
+        background-color: #0052cc;
+        background-image:
+          linear-gradient(
+            45deg,
+            rgba(255, 255, 255, 0.05) 25%,
+            transparent 25%
+          ),
+          linear-gradient(
+            -45deg,
+            rgba(255, 255, 255, 0.05) 25%,
+            transparent 25%
+          ),
+          linear-gradient(
+            45deg,
+            transparent 75%,
+            rgba(255, 255, 255, 0.05) 75%
+          ),
+          linear-gradient(
+            -45deg,
+            transparent 75%,
+            rgba(255, 255, 255, 0.05) 75%
+          );
+        background-size: 40px 40px;
+        background-position:
+          0 0,
+          0 20px,
+          20px -20px,
+          -20px 0px;
+      }
+
+      /* Helper for the orange dot in the headline */
+      .orange-dot::after {
+        content: "";
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        background-color: #ff7e1a;
+        margin-left: 4px;
+      }
+
+      .contact-pixel-bg {
+        background-image: radial-gradient(#0052cc 1px, transparent 1px);
+        background-size: 20px 20px;
+      }
+    </style>
+    <style data-purpose="typography">
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Playfair+Display:ital,wght@1,400;1,700&display=swap");
+
+      body {
+        font-family: "Inter", sans-serif;
+        border: #0052cc 20px solid;
+      }
+
+      .hero-title {
+        font-weight: 900;
+        line-height: 0.9;
+        letter-spacing: -0.05em;
+      }
+
+      .card-title {
+        font-family: "Inter", sans-serif;
+        font-weight: 700;
+        font-style: italic;
+      }
+
+      .serif-italic {
+        font-family: "Playfair Display", serif;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body class="bg-white m-0 p-0 overflow-x-hidden">
+    <!-- BEGIN: HeroSection -->
+    <main class="relative w-full grid-bg flex flex-col items-center">
+      <!-- BEGIN: TopBar -->
+      <header class="w-full flex justify-between items-center px-12 py-8 z-50">
+        <!-- Logo/Brand -->
+        <div
+          class="flex items-center bg-[#0052cc] text-white px-4 py-2 font-bold text-lg"
+          data-purpose="logo"
+        >
+          <div class="flex gap-1 mr-3">
+            <div class="w-3 h-3 bg-white"></div>
+            <div class="w-3 h-3 bg-[#ff7e1a]"></div>
+          </div>
+          <span>CSLD&CPSRY</span>
+        </div>
+     
+        <nav
+          class="bg-[#ff7e1a] rounded-full px-8 py-3 shadow-lg flex items-center gap-8 text-black font-medium"
+          data-purpose="navigation"
+        >
+          <a class="border-b-2 border-black" href="#">Home</a>
+          <a class="hover:opacity-75 transition-opacity" href="#">About Us</a>
+          <a class="hover:opacity-75 transition-opacity" href="#">Services</a>
+          <a
+            class="hover:opacity-75 transition-opacity flex items-center gap-1"
+            href="#"
+          >
+            Portfolio
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewbox="0 0 24 24"
+            >
+              <path
+                d="M19 9l-7 7-7-7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              ></path>
+            </svg>
+          </a>
+          <a class="hover:opacity-75 transition-opacity" href="#">Contact</a>
+        </nav>
+
+        <div class="w-40 invisible"></div>
+      </header>
+  
+      <section
+        class="relative z-10 text-center mt-12 px-4 max-w-6xl"
+        data-purpose="headline-container"
+      >
+        <h1 class="hero-title text-[#0052cc] text-[8rem] uppercase mb-0">
+          Multi-Platform
+        </h1>
+        <h1 class="hero-title text-[#0052cc] text-[8rem] uppercase mb-0">
+          Advertising
+        </h1>
+        <h1 class="hero-title text-[#0052cc] text-[8rem] uppercase relative">
+          Experts<span class="inline-block w-6 h-6 bg-[#ff7e1a] ml-2"></span>
+        </h1>
+      </section>
+      <!-- END: MainHeadline -->
+      <!-- BEGIN: FeaturedCard -->
+      <section
+        class="relative z-20 mt-[-2rem] mb-20"
+        data-purpose="featured-content"
+      >
+        <div class="bg-[#d1f2eb] p-2 shadow-2xl">
+          <div class="bg-white p-4">
+            <img
+              alt="Digital Marketing Campaign on Phone"
+              class="w-80 h-auto object-cover"
+              id="featured-image"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCL_ieVSyKqVlemnKXLQ9qErP5_G7e1qzaGg0ThdxOVRb_9WaA3tOTV82v-ZtP0SVw5zS_UCpLGKUT2q4IIUqAt3PugSoVucvub9VI5oZ-1xHLCDxY1EnDc_VXAH0xM9QKg_bYMddv0F3KByiifORqJGtP-7eRT_3H0bvT2OLFK3igwpF09peV1Wx_zQy9TyyjlFx78fhmwnkTrWlMUktMNnrR65VpNeDULjgYKmxEWILFgX9wlCGaWsSlerN0PCphpeBrP3qAveuY"
+            />
+            <div class="mt-4 text-center">
+              <h3 class="text-2xl font-bold text-gray-800">
+                Digital Marketing
+              </h3>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- END: FeaturedCard -->
+      <!-- BEGIN: PixelArtBackground -->
+      <div class="pixel-pattern" data-purpose="background-decoration">
+        <svg
+          height="100%"
+          preserveaspectratio="none"
+          viewbox="0 0 1000 400"
+          width="100%"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <!-- Left Side Pixels -->
+          <g fill="#0052cc">
+            <rect height="20" width="20" x="0" y="350"></rect>
+            <rect height="20" width="20" x="20" y="370"></rect>
+            <rect height="20" width="20" x="40" y="340"></rect>
+            <rect height="20" width="20" x="60" y="360"></rect>
+            <rect height="20" width="20" x="100" y="320"></rect>
+            <rect height="20" width="20" x="120" y="330"></rect>
+            <rect height="20" width="20" x="140" y="310"></rect>
+            <rect height="20" width="20" x="160" y="300"></rect>
+            <rect height="20" width="20" x="180" y="290"></rect>
+            <rect height="20" width="20" x="200" y="285"></rect>
+            <rect height="20" width="40" x="220" y="280"></rect>
+            <rect height="20" width="40" x="260" y="275"></rect>
+            <rect height="20" width="60" x="300" y="280"></rect>
+            <rect fill="#ff7e1a" height="10" width="10" x="195" y="270"></rect>
+            <!-- Orange Pixel -->
+            <!-- Denser block bottom left -->
+            <rect height="20" opacity="0.8" width="400" x="0" y="380"></rect>
+          </g>
+          <!-- Right Side Pixels -->
+          <g fill="#0052cc">
+            <rect height="20" width="20" x="960" y="150"></rect>
+            <rect height="10" width="10" x="940" y="160"></rect>
+            <rect height="20" width="20" x="900" y="250"></rect>
+            <rect height="20" width="20" x="880" y="240"></rect>
+            <rect height="20" width="20" x="860" y="260"></rect>
+            <rect height="20" width="20" x="840" y="280"></rect>
+            <rect height="20" width="20" x="820" y="300"></rect>
+            <rect height="20" width="40" x="800" y="320"></rect>
+            <rect height="20" width="40" x="780" y="330"></rect>
+            <rect height="10" width="40" x="740" y="310"></rect>
+            <rect fill="#ff7e1a" height="10" width="10" x="745" y="290"></rect>
+            <!-- Orange Pixel -->
+            <rect fill="#ff7e1a" height="10" width="10" x="968" y="310"></rect>
+            <!-- Orange Pixel -->
+            <!-- Denser block bottom right -->
+            <rect height="50" opacity="0.9" width="300" x="700" y="350"></rect>
+            <rect height="20" opacity="0.7" width="250" x="750" y="330"></rect>
+            <rect height="20" opacity="0.5" width="200" x="800" y="310"></rect>
+          </g>
+        </svg>
+      </div>
+      <!-- END: PixelArtBackground -->
+      <section
+        class="w-full bg-[#0052cc] text-white py-20 px-12 relative z-10"
+        data-purpose="about-section"
+      >
+        <div class="max-w-6xl mx-auto">
+          <!-- Header Row -->
+          <div class="flex items-baseline gap-8 mb-12">
+            <span class="text-7xl italic font-light opacity-80">01</span>
+            <h2 class="hero-title text-[5rem] uppercase leading-none">
+              About Our<br />Agency
+            </h2>
+          </div>
+          <!-- Divider -->
+          <div class="border-t border-dashed border-white/30 mb-16"></div>
+          <!-- Content Row -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- Left Spacer -->
+            <div></div>
+            <!-- Right Content -->
+            <div>
+              <h3 class="text-4xl font-bold mb-6">Who We Are</h3>
+              <p class="text-lg leading-relaxed opacity-90">
+                R. Alvarez is a dynamic digital marketing agency dedicated to
+                helping businesses expand their online presence and achieve
+                sustainable growth. Specializing in multi-platform advertising,
+                branding, and interactive content creation, we ensure every
+                campaign is innovative and effective. Our commitment to
+                transparency and client collaboration fosters an empowering
+                environment for businesses to thrive in the digital world.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- BEGIN: Our Services Section -->
+      <section
+        class="w-full bg-[#0052cc] text-white py-20 px-12 relative z-10"
+        data-purpose="services-section"
+      >
+        <div class="max-w-6xl mx-auto">
+          <div class="flex items-baseline gap-6 mb-16">
+            <span class="text-3xl italic font-light opacity-80">02</span>
+            <h2 class="text-7xl font-black uppercase text-[5rem]">Our Services</h2>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-0">
+            <!-- Advertising Card -->
+            <div
+              class="bg-[#d1f2eb] border-l border-[#0052cc] border-t-4 border-t-[#0052cc] border-dashed p-10 flex flex-col h-full min-h-[400px] relative"
+            >
+              <div class="absolute top-4 left-4 w-2 h-2 bg-[#0052cc]"></div>
+              <div class="self-end mb-12">
+                <svg
+                  class="w-16 h-16 text-[#0052cc]"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewbox="0 0 24 24"
+                >
+                  <path
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
+              </div>
+              <div class="mt-auto">
+                <h3 class="card-title text-3xl text-[#0052cc] mb-4">
+                  Advertising
+                </h3>
+                <p class="text-[#0052cc] text-sm leading-relaxed">
+                  Crafting compelling ad campaigns that resonate with your
+                  target audience and drive engagement.
+                </p>
+              </div>
+            </div>
+            <!-- Branding Card -->
+            <div
+              class="bg-[#d1f2eb] border-l border-[#0052cc] border-t-4 border-t-[#0052cc] border-dashed p-10 flex flex-col h-full min-h-[400px] relative"
+            >
+              <div class="absolute top-4 left-4 w-2 h-2 bg-[#0052cc]"></div>
+              <div class="self-end mb-12">
+                <svg
+                  class="w-16 h-16 text-[#0052cc]"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewbox="0 0 24 24"
+                >
+                  <path
+                    d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
+              </div>
+              <div class="mt-auto">
+                <h3 class="card-title text-3xl text-[#0052cc] mb-4">
+                  Branding
+                </h3>
+                <p class="text-[#0052cc] text-sm leading-relaxed">
+                  Developing unique brand identities that stand out and leave a
+                  lasting impression.
+                </p>
+              </div>
+            </div>
+            <!-- Content Creation Card -->
+            <div
+              class="bg-[#d1f2eb] border-l border-r border-[#0052cc] border-t-4 border-t-[#0052cc] border-dashed p-10 flex flex-col h-full min-h-[400px] relative"
+            >
+              <div class="absolute top-4 left-4 w-2 h-2 bg-[#0052cc]"></div>
+              <div class="self-end mb-12">
+                <svg
+                  class="w-16 h-16 text-[#0052cc]"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewbox="0 0 24 24"
+                >
+                  <path
+                    d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
+              </div>
+              <div class="mt-auto">
+                <h3 class="card-title text-3xl text-[#0052cc] mb-4">
+                  Content Creation
+                </h3>
+                <p class="text-[#0052cc] text-sm leading-relaxed">
+                  Creating interactive and engaging content that captivates
+                  audiences and boosts online presence.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- END: Our Services Section -->
+      <!-- BEGIN: Our Work Section -->
+      <section
+        class="w-full work-grid-bg text-white py-20 px-12 relative z-10"
+        data-purpose="work-section"
+      >
+        <div class="max-w-6xl mx-auto">
+          <div class="flex items-baseline gap-6 mb-20">
+            <span class="text-3xl italic font-light opacity-80">03</span>
+            <h2 class="text-7xl font-black uppercase text-[5rem]">Our Work</h2>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+            <!-- Project 1 -->
+            <div
+              class="bg-[#f9f9f9] p-4 group cursor-pointer transition-transform hover:-translate-y-2"
+            >
+              <div
+                class="bg-gray-200 aspect-[4/3] mb-6 overflow-hidden relative"
+              >
+                <img
+                  alt="Tech Startup Launch"
+                  class="w-full h-full object-cover"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6zEUkhyZoTp5jEfRyh17CeGHgP86B0abe3fkymgSSZ1Y_bZbqga_R-Lf2Z0iZNXIloWGlIUWn-uiKvbsyD1H49IrgZezhLYyxd4b9TmPN5Gv02e2Tw-MFoY6rDvqJAZmupQ_iNndDHT1Hnt8_FBwGoOHpSMtEuYrAT6awzDNvHVdpUui_Pa2NTpqdTymSYiOfFx2L20Hj_tJYTeD2EeFgvdEKnMPCQbzNKQYKOFqEMPr6lrOlUmWUlb0c_gALD8Pi0dkOVsPjv4X7"
+                />
+                <div
+                  class="absolute inset-0 bg-[#0052cc]/10 mix-blend-multiply"
+                ></div>
+              </div>
+              <div class="px-4 pb-8">
+                <h3
+                  class="text-4xl font-black text-[#0052cc] mb-6 leading-tight"
+                >
+                  Tech Startup<br />Launch
+                </h3>
+                <p class="text-[#0052cc] text-sm leading-relaxed opacity-80">
+                  Launched a tech startup with a dynamic marketing plan,
+                  positioning them for success in a competitive market. Drove
+                  data-led growth while strengthening competitive advantage.
+                </p>
+              </div>
+            </div>
+            <!-- Project 2 -->
+            <div
+              class="bg-[#f9f9f9] p-4 group cursor-pointer transition-transform hover:-translate-y-2 md:mt-24"
+            >
+              <div
+                class="bg-gray-200 aspect-[4/3] mb-6 overflow-hidden relative"
+              >
+                <img
+                  alt="Urban Fashion Brand Project"
+                  class="w-full h-full object-cover"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-cZf0y6MqUXgDf_TCKbqFbN1ZWGrI7Lsie7DE_dA8_GNuVX_3pkleB7OyYwPLRSlY3k3eca1wZhcQlY3UWb75YHSHYs5hshSAtXdTrH52CEYUe8gf6QwidpACmzdbyVkfpQpI9rpM19Ij2tkHvr39q0ybMIUJxggkAidr07T9btblr-C9tJ3oeLzSp19dzTzItLvW5oTb8dPFm4Lb9hX8K95AKd6oEJDFZ5Gp10gX2dEwwBvDWZKGm1vublJdi5CcNy2TYuZ6L9Yp"
+                />
+                <div
+                  class="absolute inset-0 bg-[#0052cc]/10 mix-blend-multiply"
+                ></div>
+              </div>
+              <div class="px-4 pb-8">
+                <h3
+                  class="text-4xl font-black text-[#0052cc] mb-6 leading-tight"
+                >
+                  Urban Fashion<br />Brand Project
+                </h3>
+                <p class="text-[#0052cc] text-sm leading-relaxed opacity-80">
+                  Revitalized the online presence of an urban fashion brand
+                  through influencer partnerships and visually striking
+                  campaigns, resulting in a 250% increase in social media
+                  engagement.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Footer Link -->
+          <div class="mt-20 border-t border-white/20 pt-8 flex justify-end">
+            <a
+              class="flex items-center gap-4 text-3xl font-bold italic group hover:text-[#ff7e1a] transition-colors"
+              href="#"
+            >
+              <span>Explore Our Work</span>
+              <svg
+                class="w-8 h-8 transform transition-transform group-hover:translate-x-2 group-hover:-translate-y-2"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3"
+                viewbox="0 0 24 24"
+              >
+                <path
+                  d="M7 17L17 7m0 0H8m9 0v9"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+      <!-- END: Our Work Section -->
+      <!-- BEGIN: Client Testimonials Section -->
+      <section
+        class="w-full bg-[#0052cc] text-white py-24 px-12 relative z-10"
+        data-purpose="testimonials-section"
+      >
+        <div class="max-w-6xl mx-auto">
+          <div class="flex items-baseline gap-6 mb-4">
+            <span class="text-3xl italic font-light opacity-80">04</span>
+            <h2 class="text-7xl font-black uppercase tracking-tight text-[5rem]">
+              Client<br />Testimonials
+            </h2>
+          </div>
+          <div class="border-t border-dashed border-white/40 mt-8 mb-16"></div>
+          <div class="space-y-16">
+            <!-- Testimonial 1 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+              <div class="serif-italic text-4xl font-medium">
+                Jessica Thompson
+              </div>
+              <div class="text-xl leading-relaxed opacity-90 max-w-lg">
+                "Working with R. Alvarez has been a game-changer for our brand.
+                Their creativity and strategic approach have significantly
+                boosted our online presence."
+              </div>
+            </div>
+            <!-- Testimonial 2 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+              <div class="serif-italic text-4xl font-medium">Ahmed Khan</div>
+              <div class="text-xl leading-relaxed opacity-90 max-w-lg">
+                "R. Alvarez's expert team helped us exceed our marketing goals.
+                Their innovative campaigns truly set them apart in the
+                industry."
+              </div>
+            </div>
+            <!-- Testimonial 3 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+              <div class="serif-italic text-4xl font-medium">
+                Luisa Martinez
+              </div>
+              <div class="text-xl leading-relaxed opacity-90 max-w-lg">
+                "The results we achieved with R. Alvarez were beyond our
+                expectations. Their data-driven strategies made a real impact on
+                our business."
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- END: Client Testimonials Section -->
+      <!-- BEGIN: Contact Us Section -->
+     
+      <!-- END: Contact Us Section -->
+     
+    <!-- END: HeroSection -->
+  </body>
+</html>
