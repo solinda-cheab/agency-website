@@ -1,13 +1,15 @@
 import Container from '../components/common/Container'
+import SEO from '../components/common/SEO'
 
 function About() {
   return (
     <Container style={{ paddingTop: '3rem', paddingBottom: '3rem' }}>
        <SEO
-        title="Agency Website"
-        description="Modern digital agency specializing in web design, branding, and development."
-        image="/og-image.jpg"
-        url="https://your-domain.com"
+        config={{
+          title: "About Us",
+          description: "Modern digital agency specializing in web design, branding, and development.",
+          image: "/og-image.jpg",
+        }}
       />
       {/* ABOUT SECTION */}
       <section id="about" className="w-full bg-[#0052cc] text-white py-20 px-12 relative z-10">

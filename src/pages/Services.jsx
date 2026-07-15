@@ -1,4 +1,5 @@
 import Container from '../components/common/Container'
+import SEO from '../components/common/SEO'
 
 const SERVICES_DATA = [
   {
@@ -22,10 +23,11 @@ function Services() {
   return (
     <Container style={{ paddingTop: '3rem', paddingBottom: '3rem' }}>
        <SEO
-        title="Agency Website"
-        description="Modern digital agency specializing in web design, branding, and development."
-        image="/og-image.jpg"
-        url="https://your-domain.com"
+        config={{
+          title: "Our Services",
+          description: "Modern digital agency specializing in web design, branding, and development.",
+          image: "/og-image.jpg",
+        }}
       />
       
       {/* SERVICES SECTION */}
