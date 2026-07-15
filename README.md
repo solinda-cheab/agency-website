@@ -1,6 +1,6 @@
 # Agency Website
 
-A modern, responsive agency website built with **React**, **Vite**, and **Tailwind CSS**. This project showcases a clean user interface, smooth animations, reusable components, and modern frontend development practices.
+A responsive agency website built with **React**, **Vite**, and **Tailwind CSS**. This project showcases a clean user interface, smooth animations, reusable components, and modern frontend development practices.
 
 ---
 
@@ -9,24 +9,6 @@ A modern, responsive agency website built with **React**, **Vite**, and **Tailwi
 This project is a frontend-only marketing agency website designed to demonstrate responsive web design, component-based architecture, accessibility, and performance optimization.
 
 The website includes multiple pages such as Home, About, Services, Portfolio, Blog, and Contact.
-
----
-
-## Features
-
-* Responsive design
-* Modern UI/UX
-* Mobile navigation
-* Dark mode
-* Smooth scrolling
-* Scroll animations
-* Portfolio showcase
-* Blog page
-* Contact form with validation
-* SEO-friendly structure
-* Open Graph support
-* Accessible components
-* Reusable UI components
 
 ---
 
@@ -76,46 +58,6 @@ src/
 * Blog
 * Contact
 * 404 Not Found
-
----
-
-##  UI Components
-
-* Navbar
-* Footer
-* Hero Section
-* Service Cards
-* Project Cards
-* Testimonial Cards
-* Team Cards
-* FAQ Accordion
-* Buttons
-* Cards
-* Section Titles
-* Loader
-* Back to Top Button
-
----
-
-## Responsive Design
-
-Optimized for:
-
-* Mobile
-* Tablet
-* Laptop
-* Desktop
-
----
-
-## Accessibility
-
-* Semantic HTML
-* Keyboard navigation
-* Focus states
-* ARIA labels
-* Proper heading hierarchy
-* Sufficient color contrast
 
 ---
 
@@ -227,7 +169,4 @@ Runs ESLint.
 
 ---
 
-## Author
-
-**Linda**
 
