@@ -1,8 +1,7 @@
 export const projects = [
   {
     id: "tech-startup-launch",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuD6zEUkhyZoTp5jEfRyh17CeGHgP86B0abe3fkymgSSZ1Y_bZbqga_R-Lf2Z0iZNXIloWGlIUWn-uiKvbsyD1H49IrgZezhLYyxd4b9TmPN5Gv02e2Tw-MFoY6rDvqJAZmupQ_iNndDHT1Hnt8_FBwGoOHpSMtEuYrAT6awzDNvHVdpUui_Pa2NTpqdTymSYiOfFx2L20Hj_tJYTeD2EeFgvdEKnMPCQbzNKQYKOFqEMPr6lrOlUmWUlb0c_gALD8Pi0dkOVsPjv4X7",
+    image:"./src/assets/images/p3.jpg",
     alt: "Tech Startup Launch",
     title: "Tech Startup\nLaunch",
     description:
@@ -11,8 +10,7 @@ export const projects = [
   },
   {
     id: "urban-fashion-brand",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuD-cZf0y6MqUXgDf_TCKbqFbN1ZWGrI7Lsie7DE_dA8_GNuVX_3pkleB7OyYwPLRSlY3k3eca1wZhcQlY3UWb75YHSHYs5hshSAtXdTrH52CEYUe8gf6QwidpACmzdbyVkfpQpI9rpM19Ij2tkHvr39q0ybMIUJxggkAidr07T9btblr-C9tJ3oeLzSp19dzTzItLvW5oTb8dPFm4Lb9hX8K95AKd6oEJDFZ5Gp10gX2dEwwBvDWZKGm1vublJdi5CcNy2TYuZ6L9Yp",
+     image:"./src/assets/images/p4.jpg",
     alt: "Urban Fashion Brand Project",
     title: "Urban Fashion\nBrand Project",
     description:
@@ -22,8 +20,7 @@ export const projects = [
   },
   {
     id: "northstar-labs",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBCL_ieVSyKqVlemnKXLQ9qErP5_G7e1qzaGg0ThdxOVRb_9WaA3tOTV82v-ZtP0SVw5zS_UCpLGKUT2q4IIUqAt3PugSoVucvub9VI5oZ-1xHLCDxY1EnDc_VXAH0xM9QKg_bYMddv0F3KByiifORqJGtP-7eRT_3H0bvT2OLFK3igwpF09peV1Wx_zQy9TyyjlFx78fhmwnkTrWlMUktMNnrR65VpNeDULjgYKmxEWILFgX9wlCGaWsSlerN0PCphpeBrP3qAveuY",
+    image:"./src/assets/images/p2.jpg",
     alt: "Northstar Labs Website Redesign",
     title: "Northstar Labs\nConversion Redesign",
     description:
@@ -32,9 +29,8 @@ export const projects = [
   },
   {
     id: "aurelia-health",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuD6zEUkhyZoTp5jEfRyh17CeGHgP86B0abe3fkymgSSZ1Y_bZbqga_R-Lf2Z0iZNXIloWGlIUWn-uiKvbsyD1H49IrgZezhLYyxd4b9TmPN5Gv02e2Tw-MFoY6rDvqJAZmupQ_iNndDHT1Hnt8_FBwGoOHpSMtEuYrAT6awzDNvHVdpUui_Pa2NTpqdTymSYiOfFx2L20Hj_tJYTeD2EeFgvdEKnMPCQbzNKQYKOFqEMPr6lrOlUmWUlb0c_gALD8Pi0dkOVsPjv4X7",
-    alt: "Aurelia Health Patient Portal",
+    image:"./src/assets/images/p1.jpg",
+     alt: "Aurelia Health Patient Portal",
     title: "Aurelia Health\nPatient Portal",
     description:
       "Designed and launched a patient wellness portal with an accessible, calming interface that boosted appointment bookings by 40%.",
@@ -87,4 +83,4 @@ export const testimonials = [
     quote:
       "The results we achieved with R. Alvarez were beyond our expectations. Their data-driven strategies made a real impact on our business.",
   },
-]
+];

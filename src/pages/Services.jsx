@@ -1,28 +1,38 @@
 import Container from '../components/common/Container'
 import SEO from '../components/common/SEO'
+// 1. Keep imports as they were
+import { BrandIcon, ClockIcon, ContentIcon } from "../components/common/icons";
+import SectionTitle from '../components/common/SectionTitle';
+import Card from '../components/common/Card';
 
 const SERVICES_DATA = [
   {
+    id: 1,
     title: 'Brand Strategy',
     description: 'Crafting cohesive brand strategies that elevate your identity and grow engagement.',
-    icon: <span className="text-6xl">💼</span>,
+    icon: BrandIcon, // <-- PASS THE COMPONENT DIRECTLY (No < /> brackets!)
+    isEdge: false,
   },
   {
+    id: 2,
     title: 'Digital Marketing',
     description: 'Driving measurable results through targeted campaigns and creative content.',
-    icon: <span className="text-6xl">📈</span>,
+    icon: ClockIcon, // <-- PASS THE COMPONENT DIRECTLY
+    isEdge: false,
   },
   {
+    id: 3,
     title: 'Creative Design',
     description: 'Designing memorable visuals and experiences that resonate with your audience.',
-    icon: <span className="text-6xl">🎨</span>,
+    icon: ContentIcon, // <-- PASS THE COMPONENT DIRECTLY
+    isEdge: true,
   },
 ]
 
 function Services() {
   return (
     <Container style={{ paddingTop: '3rem', paddingBottom: '3rem' }}>
-       <SEO
+      <SEO
         config={{
           title: "Our Services",
           description: "Modern digital agency specializing in web design, branding, and development.",
@@ -31,22 +41,18 @@ function Services() {
       />
       
       {/* SERVICES SECTION */}
-      <section id="services" className="w-full bg-[#0052cc] text-white py-20 px-12 relative z-10">
+      <section id="services" className="w-full bg-[#0052cc] text-white py-20 px-4 sm:px-8 lg:px-12 relative z-10">
         <div className="max-w-6xl mx-auto">
-          <div className="flex items-baseline gap-6 mb-16">
-            <span className="text-3xl italic font-light opacity-80">02</span>
-            <h2 className="text-5xl md:text-[5rem] font-black uppercase">Our Services</h2>
-          </div>
+          <SectionTitle number="02" title="Our Services" className="mb-16" />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
-            {SERVICES_DATA.map((service, index) => (
-              <div key={index} className={`bg-[#d1f2eb] border-l border-[#0052cc] border-t-4 border-t-[#0052cc] border-dashed p-10 flex flex-col h-full min-h-[400px] relative ${index === SERVICES_DATA.length - 1 ? 'border-r' : ''}`}>
-                <div className="absolute top-4 left-4 w-2 h-2 bg-[#0052cc]"></div>
-                <div className="self-end mb-12">{service.icon}</div>
-                <div className="mt-auto">
-                  <h3 className="text-3xl text-[#0052cc] font-bold italic mb-4">{service.title}</h3>
-                  <p className="text-[#0052cc] text-sm leading-relaxed">{service.description}</p>
-                </div>
-              </div>
+            {SERVICES_DATA.map((service) => (
+              <Card
+                key={service.id}
+                icon={service.icon} // This now cleanly passes the component reference!
+                title={service.title}
+                description={service.description}
+                isEdge={service.isEdge}
+              />
             ))}
           </div>
         </div>
@@ -55,4 +61,4 @@ function Services() {
   )
 }
 
-export default Services
+export default Services;

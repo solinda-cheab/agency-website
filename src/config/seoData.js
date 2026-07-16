@@ -1,5 +1,3 @@
-import { image } from "framer-motion/client";
-
 export const seoData = {
   home: {
     title: "Multi-Platform Advertising Experts",

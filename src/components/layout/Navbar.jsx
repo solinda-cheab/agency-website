@@ -1,30 +1,37 @@
 import { useEffect, useRef, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { ChevronDownIcon } from "../common/icons";
 
 const navLinks = [
-  { label: "Home", href: "#", active: true },
-  { label: "About Us", href: "#about" },
-  { label: "Services", href: "#services" },
-  { 
-    label: "Portfolio", 
-    href: "#work", 
+  { label: "Home", to: "/" },
+  { label: "About Us", to: "/about" },
+  { label: "Services", to: "/services" },
+  {
+    label: "Portfolio",
+    to: "/portfolio",
     hasDropdown: true,
     dropdownItems: [
-      { label: "Web Development", href: "#web-dev" },
-      { label: "UI/UX Design", href: "#design" },
-      { label: "Case Studies", href: "#cases" }
-    ]
+      { label: "Web Development", to: "/services" },
+      { label: "UI/UX Design", to: "/services" },
+      { label: "Case Studies", to: "/portfolio" },
+    ],
   },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", to: "/contact" },
 ];
 
 export default function Navbar() {
   const navRef = useRef(null);
   const linkRefs = useRef([]);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const location = useLocation();
   const [ruler, setRuler] = useState({ left: 0, width: 0 });
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  // Determine the active nav index from the current route
+  const activeIndex = navLinks.reduce((match, link, idx) => {
+    if (link.to === "/") return location.pathname === "/" ? idx : match;
+    return location.pathname.startsWith(link.to) ? idx : match;
+  }, 0);
 
   // Calculate and animate the active sliding indicator line
   function updateRuler(index) {
@@ -33,61 +40,45 @@ export default function Navbar() {
     if (!linkEl || !navEl) return;
     const linkRect = linkEl.getBoundingClientRect();
     const navRect = navEl.getBoundingClientRect();
-    setRuler({ 
-      left: linkRect.left - navRect.left + navEl.scrollLeft, 
-      width: linkRect.width 
+    setRuler({
+      left: linkRect.left - navRect.left + navEl.scrollLeft,
+      width: linkRect.width,
     });
   }
 
   useEffect(() => {
     // Only calculate sliding ruler adjustments on desktop viewport layout
-    if (window.innerWidth >= 1024) {
-      updateRuler(activeIndex);
-    }
-    
-    function onResize() {
+    function apply() {
       if (window.innerWidth >= 1024) {
         updateRuler(activeIndex);
       } else {
         setRuler({ left: 0, width: 0 });
       }
     }
-    
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
+
+    apply();
+    window.addEventListener("resize", apply);
+    return () => window.removeEventListener("resize", apply);
   }, [activeIndex]);
 
-  function handleLinkClick(e, index, href, hasDropdown) {
-    // If it has a dropdown on desktop, let toggle state handle it instead of immediate jump
-    if (hasDropdown && window.innerWidth >= 1024) {
-      e.preventDefault();
-      setIsDropdownOpen(!isDropdownOpen);
-      return;
+  function handleLinkClick(index, hasDropdown) {
+    // If it has a dropdown on desktop, toggle the panel instead of navigating away
+    if (hasDropdown && window.innerWidth >= 1024 && !isDropdownOpen) {
+      setIsDropdownOpen(true);
+      return false;
     }
 
-    if (href && href.startsWith("#")) {
-      e.preventDefault();
-      const target = document.querySelector(href);
-      if (target) {
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    }
-    
-    setActiveIndex(index);
-    setIsMobileMenuOpen(false); // Close mobile drawer on link navigation
+    setIsMobileMenuOpen(false);
     setIsDropdownOpen(false);
-    
-    setTimeout(() => {
-      if (window.innerWidth >= 1024) updateRuler(index);
-    }, 50);
+    return true;
   }
 
   return (
     <header className="sticky top-0 w-full bg-white/80 backdrop-blur-md border-b border-slate-100 z-50 transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        
+
         {/* Logo / Brand Alignment */}
-        <a href="/" className="flex items-center gap-3 group transition-transform hover:scale-[1.02]">
+        <Link to="/" className="flex items-center gap-3 group transition-transform hover:scale-[1.02]">
           <div className="flex gap-1.5 p-1 bg-slate-50 rounded-md border border-slate-200">
             <div className="w-3.5 h-3.5 bg-[#0052cc] rounded-sm transition-transform group-hover:rotate-12" />
             <div className="w-3.5 h-3.5 bg-[#ff7e1a] rounded-sm transition-transform group-hover:-rotate-12" />
@@ -95,24 +86,26 @@ export default function Navbar() {
           <span className="font-extrabold text-xl tracking-tight text-slate-900">
             CSLD<span className="text-[#0052cc]">&</span>CPSRY
           </span>
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav ref={navRef} className="hidden lg:flex items-center gap-8 relative py-2">
           {navLinks.map((link, idx) => (
-            <div 
-              key={link.label} 
+            <div
+              key={link.label}
               className="relative"
               onMouseEnter={() => link.hasDropdown && setIsDropdownOpen(true)}
               onMouseLeave={() => link.hasDropdown && setIsDropdownOpen(false)}
             >
-              <a
+              <Link
                 ref={(el) => (linkRefs.current[idx] = el)}
-                href={link.href}
-                onClick={(e) => handleLinkClick(e, idx, link.href, link.hasDropdown)}
+                to={link.to}
+                onClick={(e) => {
+                  if (!handleLinkClick(idx, link.hasDropdown)) e.preventDefault();
+                }}
                 className={`px-3 py-2 text-sm font-medium tracking-wide rounded-md transition-colors duration-200 flex items-center gap-1.5 cursor-pointer
-                  ${activeIndex === idx 
-                    ? "text-[#0052cc]" 
+                  ${activeIndex === idx
+                    ? "text-[#0052cc]"
                     : "text-slate-600 hover:text-slate-900"
                   }`}
               >
@@ -120,20 +113,20 @@ export default function Navbar() {
                 {link.hasDropdown && (
                   <ChevronDownIcon className={`w-4 h-4 transition-transform duration-200 ${isDropdownOpen ? "rotate-180 text-[#0052cc]" : "text-slate-400"}`} />
                 )}
-              </a>
+              </Link>
 
               {/* Functional Desktop Dropdown Menu Context */}
               {link.hasDropdown && isDropdownOpen && (
                 <div className="absolute top-full left-0 mt-1 w-48 bg-white rounded-xl shadow-xl border border-slate-100 py-2 animate-in fade-in slide-in-from-top-2 duration-200">
                   {link.dropdownItems?.map((subItem) => (
-                    <a
+                    <Link
                       key={subItem.label}
-                      href={subItem.href}
+                      to={subItem.to}
                       onClick={() => setIsDropdownOpen(false)}
                       className="block px-4 py-2.5 text-sm text-slate-700 hover:bg-slate-50 hover:text-[#0052cc] transition-colors"
                     >
                       {subItem.label}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               )}
@@ -149,9 +142,9 @@ export default function Navbar() {
 
         {/* Action Button Accent (Desktop) */}
         <div className="hidden lg:flex items-center">
-          <a href="#contact" className="bg-[#0052cc] hover:bg-[#0041a3] text-white px-5 py-2.5 rounded-full font-semibold text-sm shadow-md shadow-blue-500/10 transition-all hover:shadow-lg hover:shadow-blue-500/20">
+          <Link to="/contact" className="bg-[#0052cc] hover:bg-[#0041a3] text-white px-5 py-2.5 rounded-full font-semibold text-sm shadow-md shadow-blue-500/10 transition-all hover:shadow-lg hover:shadow-blue-500/20">
             Get Started
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Hamburger / Menu Toggle Button */}
@@ -174,48 +167,49 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Drawer Overlay Panel */}
-      <div 
+      <div
         className={`lg:hidden fixed inset-x-0 top-20 bg-white border-b border-slate-200 shadow-xl transition-all duration-300 ease-in-out origin-top transform
           ${isMobileMenuOpen ? "opacity-100 scale-y-100 visible" : "opacity-0 scale-y-95 invisible pointer-events-none"}`}
       >
         <div className="px-4 pt-4 pb-6 space-y-2 max-h-[calc(100vh-5rem)] overflow-y-auto">
           {navLinks.map((link, idx) => (
             <div key={link.label} className="block">
-              <div
-                onClick={(e) => handleLinkClick(e, idx, link.href, false)}
+              <Link
+                to={link.to}
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setIsDropdownOpen(false);
+                }}
                 className={`flex items-center justify-between w-full px-4 py-3 rounded-xl text-base font-semibold tracking-wide transition-colors
-                  ${activeIndex === idx 
-                    ? "bg-blue-50/70 text-[#0052cc]" 
+                  ${activeIndex === idx
+                    ? "bg-blue-50/70 text-[#0052cc]"
                     : "text-slate-700 hover:bg-slate-50"
                   }`}
               >
-                <a href={link.href} className="w-full">{link.label}</a>
-              </div>
-              
+                {link.label}
+              </Link>
+
               {/* Nested Expandable items for mobile view dropdown architecture */}
               {link.hasDropdown && (
                 <div className="mt-1 ml-4 pl-4 border-l-2 border-slate-100 space-y-1">
                   {link.dropdownItems?.map((subItem) => (
-                    <a
+                    <Link
                       key={subItem.label}
-                      href={subItem.href}
-                      onClick={(e) => {
-                        setIsMobileMenuOpen(false);
-                        setActiveIndex(idx);
-                      }}
+                      to={subItem.to}
+                      onClick={() => setIsMobileMenuOpen(false)}
                       className="block px-4 py-2.5 text-sm font-medium text-slate-500 hover:text-[#0052cc] rounded-lg transition-colors"
                     >
                       {subItem.label}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               )}
             </div>
           ))}
           <div className="pt-4 border-t border-slate-100 px-4">
-            <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="block w-full text-center bg-[#0052cc] text-white py-3 rounded-xl font-semibold text-base shadow-sm">
+            <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)} className="block w-full text-center bg-[#0052cc] text-white py-3 rounded-xl font-semibold text-base shadow-sm">
               Get Started
-            </a>
+            </Link>
           </div>
         </div>
       </div>
