@@ -1,16 +1,7 @@
 import { Helmet } from "react-helmet-async";
 
-interface SEOProps {
-  config?: {
-    title?: string;
-    description?: string;
-    keywords?: string;
-    image?: string;
-  };
-}
-
-export default function SEO({ config }: SEOProps) {
-  const defaultTitle = "CSLD&CPSRY ";
+export default function SEO({ config }) {
+  const defaultTitle = "CSLD&CPSRY | Multi-Platform Advertising Experts";
   const defaultDesc = "Modern digital agency specializing in web design, branding, and growth development.";
   const siteUrl = "https://agency-website-pearl-nine.vercel.app"; 
 
