@@ -1,17 +1,28 @@
 import { Helmet } from "react-helmet-async";
+import { useLocation } from "react-router-dom";
 
 export default function SEO({ config }) {
+  const location = useLocation();
   const defaultTitle = "CSLD&CPSRY | Multi-Platform Advertising Experts";
   const defaultDesc = "Modern digital agency specializing in web design, branding, and growth development.";
-  const siteUrl = "https://agency-website-pearl-nine.vercel.app"; 
+  const siteUrl = "https://agency-website-pearl-nine.vercel.app";
+  // og:url must point at the page actually being shared, not always the homepage,
+  // otherwise every shared link (e.g. /portfolio) previews as the home page.
+  const pageUrl = `${siteUrl}${location.pathname === "/" ? "" : location.pathname}`;
 
   const title = config?.title ? `${config.title} | CSLD&CPSRY` : defaultTitle;
   const description = config?.description || defaultDesc;
   
-  // Set fallback explicitly to your og-image.png asset
-  const image = config?.image 
-    ? `${siteUrl}/${config.image.replace(/^\.?\/public\//, '')}` 
-    : `${siteUrl}/og-image.png`;
+  // Normalize whatever path is passed (e.g. "./og-image.png", "/og-image.png",
+  // "og-image.png") down to a clean absolute URL. Previously this used a regex
+  // that only stripped a "./public/" prefix, so a value like "./og-image.png"
+  // was left untouched and produced a broken URL such as
+  // "https://site.com/./og-image.png" which crawlers fail to resolve.
+  const cleanPath = (config?.image || "og-image.png")
+    .replace(/^\.?\/?(public\/)?/, "") // strip leading "./", "/", or "public/"
+    .replace(/\.jpg$/i, ".png"); // guard against stale .jpg references — the real file is .png
+
+  const image = `${siteUrl}/${cleanPath}`;
 
   return (
     <Helmet>
@@ -26,7 +37,8 @@ export default function SEO({ config }) {
 
       {/* --- Open Graph / Facebook Previews --- */}
       <meta property="og:type" content="website" />
-      <meta property="og:url" content={siteUrl} />
+      <meta property="og:url" content={pageUrl} />
+      <link rel="canonical" href={pageUrl} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />

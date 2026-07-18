@@ -1,17 +1,31 @@
 import { useMemo, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import Container from "../components/common/Container";
 import SEO from "../components/common/SEO";
 import SectionTitle from "../components/common/SectionTitle";
 import ProjectCard from "../components/portfolio/ProjectCard";
 import { seoData } from "../config/seoData";
-import { projects } from "../api/projects";
+import { projects as staticProjects } from "../api/projects";
+import { getPortfolioStories } from "../api/storyblok";
 
 function Portfolio() {
   const [activeFilter, setActiveFilter] = useState("All");
 
+  // Pull projects from Storyblok. If the space/content type isn't set up
+  // yet, isn't reachable, or returns nothing, we fall back to the local
+  // static project list so the page never breaks.
+  const { data: storyblokProjects, isLoading } = useQuery({
+    queryKey: ["portfolio-stories"],
+    queryFn: getPortfolioStories,
+    staleTime: 5 * 60 * 1000,
+  });
+
+  const projects =
+    storyblokProjects && storyblokProjects.length > 0 ? storyblokProjects : staticProjects;
+
   const categories = useMemo(
     () => ["All", ...new Set(projects.map((project) => project.category).filter(Boolean))],
-    []
+    [projects]
   );
 
   const visibleProjects = useMemo(
@@ -19,7 +33,7 @@ function Portfolio() {
       activeFilter === "All"
         ? projects
         : projects.filter((project) => project.category === activeFilter),
-    [activeFilter]
+    [activeFilter, projects]
   );
 
   return (

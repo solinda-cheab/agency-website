@@ -36,7 +36,7 @@ function Services() {
         config={{
           title: "Our Services",
           description: "Modern digital agency specializing in web design, branding, and development.",
-          image: "/og-image.jpg",
+          image: "/og-image.png",
         }}
       />
       
