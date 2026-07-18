@@ -1,7 +1,7 @@
 export const projects = [
   {
     id: "tech-startup-launch",
-    image:"./src/assets/images/p3.jpg",
+    image:"./public/p3.jpg",
     alt: "Tech Startup Launch",
     title: "Tech Startup\nLaunch",
     description:
@@ -10,7 +10,7 @@ export const projects = [
   },
   {
     id: "urban-fashion-brand",
-     image:"./src/assets/images/p4.jpg",
+     image:"./public/p4.jpg",
     alt: "Urban Fashion Brand Project",
     title: "Urban Fashion\nBrand Project",
     description:
@@ -20,7 +20,7 @@ export const projects = [
   },
   {
     id: "northstar-labs",
-    image:"./src/assets/images/p2.jpg",
+    image:"./public/p2.jpg",
     alt: "Northstar Labs Website Redesign",
     title: "Northstar Labs\nConversion Redesign",
     description:
@@ -29,7 +29,7 @@ export const projects = [
   },
   {
     id: "aurelia-health",
-    image:"./src/assets/images/p1.jpg",
+    image:"./public/p1.jpg",
      alt: "Aurelia Health Patient Portal",
     title: "Aurelia Health\nPatient Portal",
     description:
