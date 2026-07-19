@@ -1,4 +1,4 @@
-# Agency Website
+# Agency Landing Page
 
 A responsive agency website built with **React**, **Vite**, and **Tailwind CSS**. This project showcases a clean user interface, smooth animations, reusable components, and modern frontend development practices.
 
